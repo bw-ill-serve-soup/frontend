@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import List from './components/inventoryList';
-import { Route } from "react-router-dom";
+import InventoryList from './components/inventoryList';
+// import { Route } from "react-router-dom";
 
 function App() {
   return (
-    <Route>
+    // <Route>
     <div className="App">
-      <List />
+      <InventoryList />
     </div>
-   </Route>
+  //  </Route>
   );
 }
 

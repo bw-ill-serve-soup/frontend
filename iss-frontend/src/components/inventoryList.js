@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import inventoryCard from './inventoryCard.js'
+import InventoryCard from './inventoryCard'
 import axios from 'axios';
 
 const mockArray = 
@@ -17,32 +17,35 @@ const mockArray =
 
 
 
-const inventoryList = props => {
+const InventoryList = props => {
     const [inventory, setinventory] = useState([]);
 
-    useEffect(() => {
-        axios
-        .get("https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory")
-        .then(res => {
-            setinventory(res.data);
-        })
-        .catch(err => {
-            console.log(Error, err);
-        })
-}, []);
+useEffect(() => setinventory(mockArray), []);
 
 
 
 
 
+// function minus() {
+//     const id = props.match.params.id;
+//     axios
+//     .put(
+//       `https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory${id}`
+//     );
+//   }
+
+//   function plus() {}
+  return (
+    <div>
+      <InventoryCard card={inventory}  />
+    </div>
 
 
-
-
+//   )
+// }
+  )
 }
 
+export default InventoryList;
 
-
-export default inventoryList;
-
-
+  
