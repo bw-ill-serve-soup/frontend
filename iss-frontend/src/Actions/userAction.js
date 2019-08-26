@@ -10,7 +10,7 @@ export const getData = () => {
   return dispatch => {
     dispatch({ type: GET_USER_DATA_START });
     axios
-      .get('')
+      .post('https://soupkitchen-buildweek.herokuapp.com/api/login')
       .then(res => {
         // res.data.data
         console.log(res);
@@ -30,7 +30,7 @@ export const postData = () => {
     return dispatch => {
       dispatch({ type: POST_USER_DATA_START });
       axios
-        .post('')
+        .post('https://soupkitchen-buildweek.herokuapp.com/api/register')
         .then(res => {
           // res.data.data
           console.log(res);
