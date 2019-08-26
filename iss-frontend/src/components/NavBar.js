@@ -16,33 +16,41 @@ class NavBar extends Component {
             <div className='navigation-container'>
                 <Menu pointing secondary>
                     <Menu.Item
+                        as={Link}
                         name='home'
+                        to='/'
                         active={activeItem=== 'home'}
                         onClick={this.handleItemClick}
                     >
-                        <Link to='/'>Home</Link>
+                        Home
                     </Menu.Item>
                     <Menu.Item
+                        as={Link}
                         name='add inventory'
+                        to='/add-form'
                         active={activeItem === 'add inventory'}
                         onClick={this.handleItemClick}
                     >
-                        <Link to='/add-form'>Add Inventory</Link>
+                        Add Inventory
                     </Menu.Item>
                     <Menu.Menu position='right'>
                         <Menu.Item
+                            as={Link}
                             name='login'
+                            to='/login'
                             active={activeItem === 'login'}
                             onClick={this.handleItemClick}
                         >
-                            <Link to='/login'>Login</Link>
+                            Login
                         </Menu.Item>
                         <Menu.Item
+                            as={Link}
                             name='signup'
+                            to='/signup'
                             active={activeItem === 'signup'}
                             onClick={this.handleItemClick} 
                         >
-                            <Link to='/signup'>Signup</Link>
+                            Signup
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu>
