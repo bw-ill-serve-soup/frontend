@@ -25,7 +25,7 @@ return (
               </h4>
               <h4 className="unit">
                 <p className="U-title">
-                  <strong>Shock: </strong>
+                  <strong>Weight: </strong>
                 </p>
                 {item.weightUnit}
               </h4>
@@ -37,7 +37,7 @@ return (
               </h4>
               <div>
               </div>
-              <div
+              {/* <div
                 onClick={event => props.plus(item.id, event)}
                 className="countButtons"
               >
@@ -48,7 +48,7 @@ return (
                 className="countButtons"
               >
                 -
-              </div>
+              </div> */}
             </div>
           );
         })}
