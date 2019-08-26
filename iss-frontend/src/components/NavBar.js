@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Menu} from 'semantic-ui-react';
+import {Menu, Segment} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
 
 class NavBar extends Component {
@@ -13,8 +14,8 @@ class NavBar extends Component {
     render() {
         const {activeItem} = this.state
         return (
-            <div className='navigation-container'>
-                <Menu pointing secondary>
+            <Segment inverted>
+                <Menu pointing secondary inverted>
                     <Menu.Item
                         as={Link}
                         name='home'
@@ -54,7 +55,7 @@ class NavBar extends Component {
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu>
-            </div>
+            </Segment>
         )
     }
 }
