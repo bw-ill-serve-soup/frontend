@@ -16,9 +16,10 @@ function App() {
 
   const addItem = (item) => {
     console.log('you have added an inventory item', item);
-    axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory')
+    axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
       .then(res => {
         console.log(res);
+        // need to update state
       })
       .catch(error => console.log('There was an error', error))
   };
@@ -26,7 +27,7 @@ function App() {
   return (
     <div className="App">
 
-      <Link to="/add_item">Add an item</Link>
+    
       <Route
         exact
         path="/add_item"
