@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
-cosnt inventoryCard = props => {
+
+const inventoryCard = props => {
 
     const [inventory, useInventory] = useState([])
 
@@ -12,6 +13,7 @@ cosnt inventoryCard = props => {
         .catch(err => {
             console.log("Error!", err);
        
-        })
-    })
+        
+    });
+}, []);
 }
