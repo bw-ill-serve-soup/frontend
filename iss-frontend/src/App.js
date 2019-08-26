@@ -5,7 +5,7 @@ import {Route, Redirect} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import InventoryForm from './components/InventoryForm';
 import Login from './components/Login';
-import InventoryList from './components/InventoryList';
+// import InventoryList from './components/InventoryList';
 
 function App() {
   return (
@@ -18,13 +18,13 @@ function App() {
               <Redirect to='/login' /> 
           )
       }} />
-      <Route exact path='/' render={props => {
+      {/* <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
               <InventoryList {...props} />
           ) : (
               <Redirect to='/login' /> 
           )
-      }} />
+      }} /> */}
       <Route path='/login' component={Login} />
       <Route path='/signup' />
     </div>
