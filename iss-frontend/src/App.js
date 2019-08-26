@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 import {Route, Redirect} from 'react-router-dom';
 
 import NavBar from './components/NavBar';
@@ -7,13 +6,33 @@ import InventoryForm from './components/InventoryForm';
 import Login from './components/Login';
 // import InventoryList from './components/InventoryList';
 
+import './App.css';
+import { axiosWithAuth } from './Auth/axiosWithAuth.js';
+import AddItemForm from './components/AddItemForm.js';
+
 function App() {
+  
+
+  // State and callbacks for the AddItemForm
+
+  
+
+  const addItem = (item) => {
+    console.log('you have added an inventory item', item);
+    axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
+      .then(res => {
+        console.log(res);
+        // need to update state
+      })
+      .catch(error => console.log('There was an error', error))
+  };
+  
   return (
     <div className="App">
       <NavBar />
-      <Route path='/add-form' render={props => {
+      <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryForm {...props} />
+              <AddItemForm {...props} />
           ) : (
               <Redirect to='/login' /> 
           )
@@ -27,6 +46,14 @@ function App() {
       }} /> */}
       <Route path='/login' component={Login} />
       <Route path='/signup' />
+
+    
+      {/* <Route
+        exact
+        path="/add_item"
+        render={props => <AddItemForm {...props} addItem={addItem} />}
+      /> */}
+
     </div>
   );
 }

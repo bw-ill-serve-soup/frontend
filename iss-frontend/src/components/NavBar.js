@@ -39,7 +39,7 @@ class NavBar extends Component {
                         <Menu.Item
                             as={Link}
                             name='add inventory'
-                            to='/add-form'
+                            to='/add_item'
                             active={activeItem === 'add inventory'}
                             onClick={this.handleItemClick}
                         >
