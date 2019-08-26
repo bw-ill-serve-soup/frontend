@@ -7,8 +7,9 @@ const inventoryCard = props => {
 
     useEffect(() => {
         axios
-        .post('')
+        .post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory')
         .then(res => {
+        setinventory(res.data);
         })
         .catch(err => {
             console.log("Error!", err);
@@ -16,4 +17,22 @@ const inventoryCard = props => {
         
     });
 }, []);
+
+
+return (
+    <div>
+        {props.card.map(item => {
+            
+        })}
+    </div>
+)
+
+
+
+
+
 }
+
+
+
+export default inventoryCard;
