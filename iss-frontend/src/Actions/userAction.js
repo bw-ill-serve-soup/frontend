@@ -14,6 +14,8 @@ export const getData = () => {
       .then(res => {
         // res.data.data
         console.log(res);
+        localStorage.setItem('token', res.data.payload);
+        this.props.history.push('/');
         dispatch({ type: GET_USER_DATA_SUCCESS, payload: res.data });
       })
       .catch(err => {
