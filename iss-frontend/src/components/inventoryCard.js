@@ -55,6 +55,7 @@ return (
               >
                 -
               </div> */}
+              <button className='edit-btn' onClick={() => props.editItem(item)}>Edit Item</button>
             </div>
           );
         })}

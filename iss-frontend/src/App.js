@@ -41,6 +41,10 @@ function App() {
       })
   };
 
+  const editItem = (item) => {
+    console.log('you are editing inventory item', item)
+  }
+
   return (
     // <Route>
     <div className="App">
@@ -56,7 +60,7 @@ function App() {
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} inventoryArray={inventoryArray} />
+              <InventoryList {...props} inventoryArray={inventoryArray} editItem={editItem} />
           ) : (
               <Redirect to='/login' /> 
           )
