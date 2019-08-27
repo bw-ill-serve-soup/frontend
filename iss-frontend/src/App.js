@@ -15,25 +15,39 @@ import Login from './components/Login';
 
 function App() {
 
+  const [inventoryArray, setInventoryArray] = useState([]);
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory')
+      .then(res => {
+        console.log(res)
+        setInventoryArray(res.data)
+      }) 
+      .catch(err => console.log(err)) 
+  }, []);
+
   const addItem = (item) => {
     console.log('you have added an inventory item', item);
     axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
       .then(res => {
-        console.log(res);
+        console.log(res.data.userInventory);
+        setInventoryArray([
+          ...res.data.userInventory
+        ])
       })
       .catch(error => {
         console.log('There was an error', error)
-        
-
       })
   };
+
   return (
     // <Route>
     <div className="App">
       <NavBar />
       <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
-              <AddItemForm {...props} />
+              <AddItemForm {...props} addItem={addItem} />
           ) : (
               <Redirect to='/login' /> 
           )
@@ -42,12 +56,12 @@ function App() {
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} />
+              <InventoryList {...props} inventoryArray={inventoryArray} />
           ) : (
               <Redirect to='/login' /> 
           )
       }} />
-      <Route path='/login' component={Login} />
+      <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
 
     
