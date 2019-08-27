@@ -29,6 +29,7 @@ const AddItemForm = props => {
         event.preventDefault();
         console.log('this works');
         addItem(item);
+        
         setItem(initialState);
     }
 

@@ -24,9 +24,11 @@ function App() {
       .then(res => {
         console.log(res);
         // need to update state
+        alert(`You have successfully added ${item.inventoryItem} to your inventory`)
       })
       .catch(error => {
         console.log('There was an error', error)
+        
         
 
       })
@@ -36,13 +38,18 @@ function App() {
     // <Route>
     <div className="App">
       <NavBar />
-      <Route path='/add_item' render={props => {
+      {/*<Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
               <AddItemForm {...props} />
           ) : (
               <Redirect to='/login' /> 
           )
-      }} />
+      }} />*/}
+      <Route
+        exact
+        path="/add_item"
+        render={props => <AddItemForm {...props} addItem={addItem} />}
+      />
 
       
       <Route exact path='/' render={props => {
