@@ -17,6 +17,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-left: solid 1px #ddab52;
 }
 
 .App-link {
@@ -27,6 +28,7 @@ div.card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 
 h4.unit {

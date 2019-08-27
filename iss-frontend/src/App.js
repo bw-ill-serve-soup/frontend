@@ -49,14 +49,14 @@ function App() {
       <Route path='/signup' />
 
     
-      {/* <Route
+      <Route
         exact
         path="/add_item"
         render={props => <AddItemForm {...props} addItem={addItem} />}
-      /> */}
+      />
 
       <InventoryList />
-    </div>
+    </div> 
   //  </Route>
   );
 }
