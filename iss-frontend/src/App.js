@@ -66,11 +66,15 @@ function App() {
   const deleteItem = (item) => {
     console.log('item that is being deleted', item)
     const nameid = item.id
-    console.log(nameid)
+    const object = {id: nameid}
+    console.log(object)
     axiosWithAuth()
       .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, {id: nameid})
       .then(res => {
         console.log(res)
+        setInventoryArray([
+          ...inventoryArray.filter(inventory => inventory.id !== item.id)
+        ])
       })
       .catch(err => {
         console.log(err) 
