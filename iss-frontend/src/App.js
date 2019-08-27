@@ -12,6 +12,7 @@ import { axiosWithAuth } from './Auth/axiosWithAuth.js';
 import AddItemForm from './components/AddItemForm.js';
 import InventoryList from './components/inventoryList';
 
+
 function App() {
   
 
@@ -26,7 +27,11 @@ function App() {
         console.log(res);
         // need to update state
       })
-      .catch(error => console.log('There was an error', error))
+      .catch(error => {
+        console.log('There was an error', error)
+        
+
+      })
   };
   return (
     // <Route>
@@ -39,6 +44,8 @@ function App() {
               <Redirect to='/login' /> 
           )
       }} />
+
+      
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
               <InventoryList {...props} />
@@ -62,3 +69,5 @@ function App() {
 }
 
 export default App;
+
+

@@ -9,7 +9,7 @@ function DevLogin() {
         axios
             .post('https://soupkitchen-buildweek.herokuapp.com/api/login', credentials)
             .then(res => {
-                console.log(res.data.token)
+                console.log(res)
                 localStorage.setItem('token', res.data.token)
             })
             .catch(err => {
