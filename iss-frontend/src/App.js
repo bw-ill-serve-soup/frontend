@@ -25,7 +25,6 @@ function App() {
     axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
       .then(res => {
         console.log(res);
-        // need to update state
       })
       .catch(error => {
         console.log('There was an error', error)
