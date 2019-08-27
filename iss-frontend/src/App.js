@@ -16,9 +16,11 @@ import InventoryList from './components/inventoryList';
 function App() {
   
 
-  // State and callbacks for the AddItemForm
+  // State to display 'Success Message' on the AddItem form when post request is successful
 
   const [addMessage, setAddMessage] = useState('message-hide');
+
+  // Function to use in successful post request to hide 'Success' message after 3 seconds
 
   const messageReset = () => {
     setAddMessage('message-hide');
