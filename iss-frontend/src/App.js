@@ -43,7 +43,15 @@ function App() {
   };
 
   const editItem = (item) => {
-    console.log(item);
+    console.log('item that is being edited', item);
+    axiosWithAuth()
+      .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   return (
