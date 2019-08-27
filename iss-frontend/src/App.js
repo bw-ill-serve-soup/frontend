@@ -48,6 +48,15 @@ function App() {
       .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
       .then(res => {
         console.log(res)
+        const mutateArray = [...inventoryArray]
+        for (let i=0; i < inventoryArray.length; i++) {
+          if (item.id === mutateArray[i].id) {
+            mutateArray[i].quantity = item.quantity;
+            mutateArray[i].weightUnit = item.weightUnit;
+            mutateArray[i].inventoryItem = item.inventoryItem;
+          }
+        }
+        setInventoryArray(mutateArray);
       })
       .catch(err => {
         console.log(err)
