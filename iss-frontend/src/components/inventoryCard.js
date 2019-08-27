@@ -19,25 +19,31 @@ return (
               <h3 className="name">{item.item_name}</h3>
               <h4 className="quantity">
                 <p className="title">
-                  <strong>Items inventory </strong>
+                    <h3>
+                  <strong>Items inventory: </strong>
+                  </h3>
                 </p>{" "}
-                {item.quantity}
+                {item.inventoryItem}
               </h4>
               <h4 className="unit">
                 <p className="U-title">
-                  <strong>Shock: </strong>
+                    <h3>
+                  <strong>Weight: </strong>
+                  </h3>
                 </p>
                 {item.weightUnit}
               </h4>
               <h4 className="category">
                 <p className="C-title">
+                    <h3>
                   <strong>Category: </strong>
+                  </h3>
                 </p>
-                {item.inventoryItem}
+                {item.quantity}
               </h4>
               <div>
               </div>
-              <div
+              {/* <div
                 onClick={event => props.plus(item.id, event)}
                 className="countButtons"
               >
@@ -48,7 +54,7 @@ return (
                 className="countButtons"
               >
                 -
-              </div>
+              </div> */}
             </div>
           );
         })}

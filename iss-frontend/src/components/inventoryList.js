@@ -3,7 +3,7 @@ import InventoryCard from './inventoryCard'
 import axios from 'axios';
 
 const mockArray = 
-[{inventoryItem: 'potatoes', weightsUnit: '12 kg', quantity: 5}, 
+[{inventoryItem: 'potatoes', weightUnit: '12 pounds', quantity: 5}, 
 {inventoryItem: 'canned soup', weightUnit: '20 pounds', quantity: 40}, 
 {inventoryItem: 'carrots', weightUnit: '20 pounds', quantity: 20}, 
 {inventoryItem: 'Milk', weightUnit: '175 pounds', quantity: 20},
@@ -39,6 +39,10 @@ useEffect(() => setinventory(mockArray), []);
     <div>
       <InventoryCard card={inventory}  />
     </div>
+
+
+
+
 
 
 //   )
