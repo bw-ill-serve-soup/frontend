@@ -65,11 +65,11 @@ function App() {
 
   const deleteItem = (item) => {
     console.log('item that is being deleted', item)
-    const nameid = item.id
-    const object = {id: nameid}
+    const object = {id: item.id};
     console.log(object)
+    
     axiosWithAuth()
-      .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, {id: nameid})
+      .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory/${item.id}`)
       .then(res => {
         console.log(res)
         setInventoryArray([
