@@ -10,6 +10,7 @@ import './App.css';
 import { axiosWithAuth } from './Auth/axiosWithAuth.js';
 import AddItemForm from './components/AddItemForm.js';
 import InventoryList from './components/inventoryList';
+import EditForm from './components/EditForm';
 
 import Login from './components/Login';
 
@@ -41,8 +42,9 @@ function App() {
       })
   };
 
-  const editItem = (item) => {
-    console.log('you are editing inventory item', item)
+  const editItem = (item, history) => {
+    console.log('editing item', item) 
+    history.push(`/edit-item/${item.id}`)
   }
 
   return (
@@ -67,6 +69,7 @@ function App() {
       }} />
       <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
+      <Route path='/edit-item/:id' component={EditForm} />
 
     
       {/* <Route
