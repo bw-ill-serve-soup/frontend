@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './AddItemForm.css';
+import './AddItemForm.scss';
+import { Form, Button, Popup } from 'semantic-ui-react';
 
 
 
@@ -32,42 +33,56 @@ const AddItemForm = props => {
     }
 
     return (
-      <form onSubmit={handleSubmit}>
-        <div className="form-wrapper">
-          <h2>Add a new inventory item</h2>
-          <div className="form-inputs">
-            <div className="input-field item-name">
-              <input
-                placeholder="New item"
+      <div className="addItem-container">
+        <h2 className="headline">Add an item to your inventory</h2>
+
+        <div className="form-container">
+          <div className="form-wrapper">
+            <Form onSubmit={handleSubmit}>
+            
+              <Form.Input
+                required
+                label="Item name"
+                placeholder="ex. Banana"
                 value={item.inventoryItem}
                 name="inventoryItem"
                 type="text"
                 onChange={handleChange}
               />
-            </div>
-            <div className="input-field weight">
-              <input
-                placeholder="Weight"
-                value={item.weightUnit}
-                name="weightUnit"
-                type="text"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="input-field quantity">
-              <input
-                placeholder="Quantity"
-                value={item.quantity}
-                name="quantity"
-                type="number"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+              <Form.Group widths="equal">
+                <Form.Input
+                  required
+                  fluid
+                  label="Item weight"
+                  placeholder="ex. 3 lbs."
+                  value={item.weightUnit}
+                  name="weightUnit"
+                  type="text"
+                  onChange={handleChange}
+                />
+                <Form.Input
+                  required
+                  fluid
+                  label="Quantity"
+                  placeholder="ex. 5"
+                  value={item.quantity}
+                  name="quantity"
+                  type="number"
+                  onChange={handleChange}
+                />
+              </Form.Group>
 
-          <button type="submit">Add Inventory Item</button>
+              <div className="button-wrapper">
+                
+                
+                <Button className="sub-button" type="submit">
+                  Add new item
+                </Button>
+              </div>
+            </Form>
+          </div>
         </div>
-      </form>
+      </div>
     );
 }
 
