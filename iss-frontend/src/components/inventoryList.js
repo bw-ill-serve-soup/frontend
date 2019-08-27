@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import InventoryCard from './inventoryCard'
-import axios from 'axios';
+import {axiosWithAuth} from '../Auth/axiosWithAuth';
 
 const mockArray = 
 [{inventoryItem: 'potatoes', weightUnit: '12 pounds', quantity: 5}, 
@@ -18,35 +18,22 @@ const mockArray =
 
 
 const InventoryList = props => {
-    const [inventory, setinventory] = useState([]);
+  const [inventory, setinventory] = useState([]);
 
-useEffect(() => setinventory(mockArray), []);
+  useEffect(() => {
+    axiosWithAuth()
+      .get('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory')
+      .then(res => {
+        setinventory(res.data)
+      }) 
+      .catch(err => console.log(err)) 
+  }, []);
 
 
-
-
-
-// function minus() {
-//     const id = props.match.params.id;
-//     axios
-//     .put(
-//       `https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory${id}`
-//     );
-//   }
-
-//   function plus() {}
   return (
     <div>
       <InventoryCard card={inventory}  />
     </div>
-
-
-
-
-
-
-//   )
-// }
   )
 }
 

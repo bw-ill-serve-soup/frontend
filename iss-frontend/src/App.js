@@ -14,11 +14,6 @@ import InventoryList from './components/inventoryList';
 import Login from './components/Login';
 
 function App() {
-  
-
-  // State and callbacks for the AddItemForm
-
-  
 
   const addItem = (item) => {
     console.log('you have added an inventory item', item);
@@ -56,11 +51,11 @@ function App() {
       <Route path='/signup' component={DevSignup} />
 
     
-      <Route
+      {/* <Route
         exact
         path="/add_item"
         render={props => <AddItemForm {...props} addItem={addItem} />}
-      />
+      /> */}
 
       {/* <InventoryList /> */}
       {/* <Login/> */}
