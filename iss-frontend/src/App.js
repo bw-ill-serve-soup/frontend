@@ -57,11 +57,11 @@ function App() {
       <Route path='/signup' component={DevSignup} />
 
     
-      {/* <Route
+      <Route
         exact
         path="/add_item"
         render={props => <AddItemForm {...props} addItem={addItem} />}
-      /> */}
+      />
 
       {/* <InventoryList /> */}
     </div>
