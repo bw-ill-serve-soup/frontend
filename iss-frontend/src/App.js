@@ -3,6 +3,8 @@ import {Route, Redirect} from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import Login from './components/Login';
+import DevLogin from './components/DevLogin';
+import DevSignup from './components/DevSignup';
 // import InventoryList from './components/InventoryList';
 
 import './App.css';
@@ -26,7 +28,6 @@ function App() {
       })
       .catch(error => console.log('There was an error', error))
   };
-  
   return (
     // <Route>
     <div className="App">
@@ -45,8 +46,8 @@ function App() {
               <Redirect to='/login' /> 
           )
       }} />
-      <Route path='/login' component={Login} />
-      <Route path='/signup' />
+      <Route path='/login' component={DevLogin} />
+      <Route path='/signup' component={DevSignup} />
 
     
       {/* <Route
@@ -57,7 +58,6 @@ function App() {
 
       {/* <InventoryList /> */}
     </div>
-  //  </Route>
   );
 }
 
