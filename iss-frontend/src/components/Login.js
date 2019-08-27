@@ -3,11 +3,12 @@ import React, {useState} from "react";
 import {getData} from '../Actions'
 
   const Login = () => {
-    const [creds, setCreds] = useState({ userName: "", password: "" });
+    const [creds, setCreds] = useState({ username: "", password: "" });
     
 
 
     const changeHandler = event => {
+
         setCreds({ ...creds, [event.target.name]: event.target.value });
     };
 
@@ -18,7 +19,7 @@ return (
         <input
         name='username'
         type='text'
-        value={creds.userName}
+        value={creds.username}
         onChange={changeHandler}
         placeholder='Username'
         />

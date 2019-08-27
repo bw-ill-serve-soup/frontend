@@ -6,11 +6,12 @@ export const GET_USER_DATA_FAILURE =  'GET_USER_DATA_FAILURE'
 export const POST_USER_DATA_START = 'POST_USER_DATA_START'
 export const POST_USER_DATA_SUCCESS = 'POST_USER_DATA_SUCCESS'
 export const POST_USER_DATA_FAILURE = 'POST_USER_DATA_FAILURE'
-export const getData = () => {
+export const getData = (event, creds) => {
   return dispatch => {
     dispatch({ type: GET_USER_DATA_START });
+    event.preventDefault();
     axios
-      .post('https://soupkitchen-buildweek.herokuapp.com/api/login')
+      .post('https://soupkitchen-buildweek.herokuapp.com/api/login', creds)
       .then(res => {
         // res.data.data
         console.log(res);
@@ -26,7 +27,7 @@ export const getData = () => {
 };
 
 
-export const postData = () => {
+/*export const postData = () => {
     return dispatch => {
       dispatch({ type: POST_USER_DATA_START });
       axios
@@ -41,4 +42,4 @@ export const postData = () => {
           console.log(err);
         });
     };
-  };
+  };*/
