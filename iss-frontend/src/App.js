@@ -63,6 +63,20 @@ function App() {
       })
   }
 
+  const deleteItem = (item) => {
+    console.log('item that is being deleted', item)
+    const nameid = item.id
+    console.log(nameid)
+    axiosWithAuth()
+      .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, {id: nameid})
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err) 
+      })
+  }
+
   return (
     // <Route>
     <div className="App">
@@ -78,7 +92,7 @@ function App() {
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} inventoryArray={inventoryArray} />
+              <InventoryList {...props} inventoryArray={inventoryArray} deleteItem={deleteItem} />
           ) : (
               <Redirect to='/login' /> 
           )

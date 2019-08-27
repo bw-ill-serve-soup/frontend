@@ -12,6 +12,10 @@ const InventoryCard = props => {
       props.history.push(`/edit-item/${item.id}`)
     }
 
+    const deleteClickHandler = item => {
+      props.deleteItem(item) 
+    }
+
     return (
         <div>
           <div className="page">
@@ -57,6 +61,7 @@ const InventoryCard = props => {
                   >
                     -
                   </div> */}
+                  <button className='delete-btn' onClick={() => deleteClickHandler(item)}>Delete Item</button>
                   <button className='edit-btn' onClick={() => editClickHandler(item)}>Edit Item</button>
                 </div>
               );
