@@ -7,34 +7,27 @@ import { Form, Button, Popup } from 'semantic-ui-react';
 const EditForm = props => {
     // what will be passed down as 'props' from App.js?
     // addItem function -> post request to backend
+    // console.log(props.inventoryArray.find(inventory => inventory.id === Number(props.match.params.id)))
 
-    const { addItem } = props;
-
-
-    // State
-    
-    const initialState = {quantity: '', weightUnit: '', inventoryItem: ''};
-    
-    const [item, setItem] = useState(initialState);
-
-    // Temporary, this will probably include an 'addItem' function from App.js
+    const { editItem, initialCard } = props;
+   
+    const [item, setItem] = useState(initialCard)
     
     const handleChange = event => {
         setItem({ ...item, [event.target.name]: event.target.value });
     };
     
-    
-    
     const handleSubmit = event => {
         event.preventDefault();
         console.log('this works');
-        addItem(item);
-        setItem(initialState);
+        editItem(item);
+        setItem({quantity: '', weightUnit: '', inventoryItem: ''});
     }
 
     return (
       <div className="addItem-container">
-        <h2 className="headline">Add an item to your inventory</h2>
+          {console.log(item)}
+        <h2 className="headline">Edit Inventory Item</h2>
 
         <div className="form-container">
           <div className="form-wrapper">

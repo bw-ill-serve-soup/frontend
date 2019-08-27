@@ -30,7 +30,7 @@ const InventoryList = props => {
 
   return (
     <div>
-      {inventory && <InventoryCard card={inventory}  editItem={props.editItem} history={history} />}
+      {inventory && <InventoryCard card={inventory} history={history} />}
     </div>
   )
 }

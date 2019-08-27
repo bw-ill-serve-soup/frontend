@@ -42,9 +42,8 @@ function App() {
       })
   };
 
-  const editItem = (item, history) => {
-    console.log('editing item', item) 
-    history.push(`/edit-item/${item.id}`)
+  const editItem = (item) => {
+    console.log(item);
   }
 
   return (
@@ -62,14 +61,17 @@ function App() {
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} inventoryArray={inventoryArray} editItem={editItem} />
+              <InventoryList {...props} inventoryArray={inventoryArray} />
           ) : (
               <Redirect to='/login' /> 
           )
       }} />
       <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
-      <Route path='/edit-item/:id' component={EditForm} />
+      <Route path='/edit-item/:id' render={props => {
+        const targetInventory = inventoryArray.find(inventory => inventory.id.toString() === props.match.params.id)
+        return <EditForm {...props} editItem={editItem} initialCard={targetInventory} />
+      }} />
 
     
       {/* <Route

@@ -8,7 +8,8 @@ const InventoryCard = props => {
     const [inventory, setInventory] = useState([])
 
     const editClickHandler = item => {
-      props.editItem(item, props.history);
+      console.log('editing item', item) 
+      props.history.push(`/edit-item/${item.id}`)
     }
 
     return (
