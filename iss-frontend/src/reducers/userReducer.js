@@ -1,4 +1,4 @@
-import {
+/*import {
     GET_USER_DATA_START,
     GET_USER_DATA_SUCCESS,
     GET_USER_DATA_FAILURE,
@@ -36,4 +36,4 @@ export const reducer = (state=initialState, action) => {
         default:
             return state
     }
-}
+}*/

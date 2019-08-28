@@ -1,8 +1,8 @@
-import axios from 'axios';
+/*import axios from 'axios';
 
 export const GET_USER_DATA_START = 'GET_USER_DATA_START'
 export const GET_USER_DATA_SUCCESS = 'GET_USER_DATA_SUCCESS'
-export const GET_USER_DATA_FAILURE =  'GET_USER_DATA_FAILURE'
+/*export const GET_USER_DATA_FAILURE =  'GET_USER_DATA_FAILURE'
 export const POST_USER_DATA_START = 'POST_USER_DATA_START'
 export const POST_USER_DATA_SUCCESS = 'POST_USER_DATA_SUCCESS'
 export const POST_USER_DATA_FAILURE = 'POST_USER_DATA_FAILURE'
@@ -16,7 +16,7 @@ export const getData = (event, creds) => {
         // res.data.data
         console.log(res);
         localStorage.setItem('token', res.data.payload);
-        this.props.history.push('/');
+        this.props.history.push('/inventoryList');
         dispatch({ type: GET_USER_DATA_SUCCESS, payload: res.data });
       })
       .catch(err => {
