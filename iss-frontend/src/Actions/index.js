@@ -1,0 +1,10 @@
+export {
+  getData,
+  //postData,
+  GET_USER_DATA_START,
+  GET_USER_DATA_SUCCESS,
+  GET_USER_DATA_FAILURE,
+ // POST_USER_DATA_START,
+ // POST_USER_DATA_SUCCESS,
+ // POST_USER_DATA_FAILURE,
+} from './userAction';
