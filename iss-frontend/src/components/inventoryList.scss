@@ -3,6 +3,7 @@ div.card {
     flex-direction: row;
     justify-content: space-between;
     border-bottom: solid 1px black;
+    max-width: 100%;
     
     
     
@@ -46,4 +47,8 @@ display: flex;
 justify-content: center;
 margin-right: -3.6%;
 text-shadow: 0 0 3px #FF0000;
+}
+
+div { 
+    max-width: 100%;
 }

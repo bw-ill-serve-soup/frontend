@@ -23,28 +23,28 @@ const InventoryCard = props => {
                 <div className="card" key={item.id}>
                   <h3 className="name">{item.item_name}</h3>
                   <h4 className="quantity">
-                    <p className="title">
+                    <div className="title">
                         <h3>
                       <strong>Items inventory: </strong>
                       </h3>
-                    </p>{" "}
+                    </div>{" "}
                     {item.inventoryItem}
                   </h4>
                   <h4 className="unit">
-                    <p className="U-title">
+                    <div className="U-title">
                         <h3>
                       <strong>Weight: </strong>
                       </h3>
-                    </p>
+                    </div>
                     {item.quantity} {item.weightUnit}
                   </h4>
                   { (Number(item.quantity) === 0) ? (
                     <h4 className="notification">
-                      <p className="C-title">
+                      <div className="C-title">
                           <h3>
                         <strong>Restock</strong>
                         </h3>
-                      </p>
+                      </div>
                   </h4> ) : null
                   }
                   <div>
