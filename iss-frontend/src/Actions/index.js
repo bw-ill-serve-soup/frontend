@@ -35,3 +35,19 @@ export const addItem = (item) => dispatch => {
         dispatch({type: ADD_INVENTORY_FAILURE, payload: `${error.response}`})
       })
 } 
+
+export const DELETE_INVENTORY_START = 'DELETE_INVENTORY_START';
+export const DELETE_INVENTORY_SUCCESS = 'DELETE_INVENTORY_SUCCESS';
+export const DELETE_INVENTORY_FAILURE = 'DELETE_INVENTORY_FAILURE';
+
+export const deleteItem = (item) => dispatch => {
+  dispatch({type: DELETE_INVENTORY_START})
+  axiosWithAuth()
+    .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory/${item.id}`)
+    .then(res => {
+      dispatch({type: DELETE_INVENTORY_SUCCESS, payload: item})
+    })
+    .catch(err => {
+      dispatch({type: DELETE_INVENTORY_FAILURE, paytload: `${err.response}`})
+    })
+}
