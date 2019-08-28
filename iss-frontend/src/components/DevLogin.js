@@ -1,6 +1,17 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
+import styled from 'styled-components';
+
+export const ErrorParagraph = styled.p`
+    padding: 16px;
+    background-color: #ffb7b7;
+    color: red;
+    border: solid 1px #f39595;
+    border-radius: 4px;
+    max-width: 700px;
+    margin: 16px auto;
+`;
+
 const Form = styled.form`
 border-radius: 20px;
 color: black;
@@ -147,8 +158,9 @@ const Input = styled.input`
     color: #fff;
 `
 
-function DevLogin() {
+function DevLogin(props) {
     const [credentials, setCredentials] = useState({username: '', password: ''})
+    const [errorMessage, setErrorMessage] = useState('');
 
     const login = e => {
         e.preventDefault();
@@ -157,9 +169,12 @@ function DevLogin() {
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.token)
+                setErrorMessage('')
+                props.history.push('/add_item')
             })
             .catch(err => {
-                console.log(err)
+                console.log(typeof err.message)
+                setErrorMessage(err.message)
             })
     }
 
@@ -188,7 +203,9 @@ function DevLogin() {
                 />
                 <Button>Submit!</Button>
             </Form>
-            
+            {errorMessage && <ErrorParagraph>
+                                    {errorMessage}
+                            </ErrorParagraph>}
         </div>
     )
 }

@@ -2,6 +2,15 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+export const ErrorParagraph = styled.p`
+    padding: 16px;
+    background-color: #ffb7b7;
+    color: red;
+    border: solid 1px #f39595;
+    border-radius: 4px;
+    max-width: 700px;
+    margin: 16px auto;
+`;
 
 const Form = styled.form`
 border-radius: 20px;
@@ -147,8 +156,9 @@ const Input = styled.input`
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: #fff;
 `
-function DevSignup() {
+function DevSignup(props) {
     const [credentials, setCredentials] = useState({username: '', password: ''})
+    const [errorMessage, setErrorMessage] = useState('');
 
     const login = e => {
         e.preventDefault();
@@ -156,10 +166,12 @@ function DevSignup() {
             .post('https://soupkitchen-buildweek.herokuapp.com/api/register', credentials)
             .then(res => {
                 console.log(res)
-                // localStorage.setItem('token', res.data.token)
+                setErrorMessage('')
+                props.history.push('/login')
             })
             .catch(err => {
                 console.log(err)
+                setErrorMessage(`${credentials.username} is already in use.`)
             })
     }
 
@@ -185,9 +197,11 @@ function DevSignup() {
                     value={credentials.password}
                     onChange={handleChange}
                 />
-                <Button>Submit!</Button>
+                <Button>Sign Up!</Button>
             </Form>
-            
+            {errorMessage && <ErrorParagraph>
+                                    {errorMessage}
+                            </ErrorParagraph>}
         </div>
     )
 }
