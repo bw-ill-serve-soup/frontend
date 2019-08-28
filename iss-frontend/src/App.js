@@ -30,48 +30,33 @@ function App(props) {
   const messageReset = () => {
     setAddMessage('message-hide');
   }
+
+  console.log(props.inventory);
   
-  const editItem = (item) => {
-    console.log('item that is being edited', item);
-    axiosWithAuth()
-      .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
-      .then(res => {
-        console.log(res)
-        const mutateArray = [...inventoryArray]
-        for (let i=0; i < inventoryArray.length; i++) {
-          if (item.id === mutateArray[i].id) {
-            mutateArray[i].quantity = item.quantity;
-            mutateArray[i].weightUnit = item.weightUnit;
-            mutateArray[i].inventoryItem = item.inventoryItem;
-          }
-        }
-        setInventoryArray(mutateArray);
+  // const editItem = (item) => {
+  //   console.log('item that is being edited', item);
+  //   axiosWithAuth()
+  //     .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
+  //     .then(res => {
+  //       console.log(res)
+  //       const mutateArray = [...inventoryArray]
+  //       for (let i=0; i < inventoryArray.length; i++) {
+  //         if (item.id === mutateArray[i].id) {
+  //           mutateArray[i].quantity = item.quantity;
+  //           mutateArray[i].weightUnit = item.weightUnit;
+  //           mutateArray[i].inventoryItem = item.inventoryItem;
+  //         }
+  //       }
+  //       setInventoryArray(mutateArray);
 
-        // messageReset()
-        setAddMessage('message-display');
-        setTimeout(messageReset, 3000);
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-
-  const deleteItem = (item) => {
-    console.log('item that is being deleted', item)
-    const object = {id: item.id};
-    
-    axiosWithAuth()
-      .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory/${item.id}`)
-      .then(res => {
-        console.log(res)
-        setInventoryArray([
-          ...inventoryArray.filter(inventory => inventory.id !== item.id)
-        ])
-      })
-      .catch(err => {
-        console.log(err) 
-      })
-  }
+  //       // messageReset()
+  //       setAddMessage('message-display');
+  //       setTimeout(messageReset, 3000);
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }
 
         
   return (
@@ -90,23 +75,20 @@ function App(props) {
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} deleteItem={deleteItem} />
+              <InventoryList {...props} />
           ) : (
               <Redirect to='/login' /> 
           )
       }} />
-      {/* <Route path='/login' component={DevLogin} />
+      <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
-      <Route path='/edit-item/:id' render={props => {
-        const targetInventory = inventoryArray.find(inventory => inventory.id.toString() === props.match.params.id)
-        return <EditForm {...props} editItem={editItem} initialCard={targetInventory} messageStatus={addMessage} />
+      {/* <Route path='/edit-item/:id' render={props => {
+        const targetInventory = props.inventory.find(item => item.id.toString() === props.match.params.id)
+        return <EditForm {...props} initialCard={targetInventory} messageStatus={addMessage} />
       }} /> */}
-
-  
-
-
-      {/* <InventoryList /> */}
-      {/* <Login/> */}
+      <Route path='/edit-item/:id' render={props => {
+        return <EditForm {...props} />
+      }} />
     </div>
   );
 }
@@ -116,7 +98,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-  null, 
+  mapStateToProps, 
   {getInventory}
 )(App);
 

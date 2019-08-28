@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 import './inventoryList.scss';
 import {connect} from 'react-redux';
 
+import {deleteItem} from '../Actions';
+
 const InventoryCard = props => {
 
     const editClickHandler = item => {
@@ -64,5 +66,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  {deleteItem}
 )(InventoryCard)

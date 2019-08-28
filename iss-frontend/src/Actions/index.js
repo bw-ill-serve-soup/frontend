@@ -1,4 +1,5 @@
 import {axiosWithAuth} from '../Auth/axiosWithAuth';
+import { statement } from '@babel/template';
 
 export const FETCH_INVENTORY_START = 'FETCH_INVENTORY_START';
 export const FETCH_INVENTORY_SUCCESS = 'FETCH_INVENTORY_SUCCESS';
@@ -45,9 +46,29 @@ export const deleteItem = (item) => dispatch => {
   axiosWithAuth()
     .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory/${item.id}`)
     .then(res => {
+      console.log(res)
       dispatch({type: DELETE_INVENTORY_SUCCESS, payload: item})
     })
     .catch(err => {
-      dispatch({type: DELETE_INVENTORY_FAILURE, paytload: `${err.response}`})
+      console.log(err.response) 
+      dispatch({type: DELETE_INVENTORY_FAILURE, payload: `${err.response}`})
+    })
+}
+
+export const EDIT_INVENTORY_START = 'EDIT_INVENTORY_START';
+export const EDIT_INVENTORY_SUCCESS = 'EDIT_INVENTORY_SUCCESS';
+export const EDIT_INVENTORY_FAILURE = 'EDIT_INVENTORY_FAILURE';
+
+export const editItem = (item) => dispatch => {
+  dispatch({type: EDIT_INVENTORY_START})
+  axiosWithAuth()
+    .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
+    .then(res => {
+      console.log(res)
+      dispatch({type: EDIT_INVENTORY_SUCCESS, payload: item})
+    })
+    .catch(err => {
+      console.log(err) 
+      dispatch({type: EDIT_INVENTORY_FAILURE, payload: `${err.response}`})
     })
 }

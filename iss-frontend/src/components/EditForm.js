@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './AddItemForm/AddItemForm.scss';
 import { Form, Button, Message } from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {editItem} from '../Actions';
 
 
 const EditForm = props => {
@@ -8,7 +10,10 @@ const EditForm = props => {
     // addItem function -> post request to backend
     // console.log(props.inventoryArray.find(inventory => inventory.id === Number(props.match.params.id)))
 
-    const { editItem, initialCard, messageStatus } = props;
+    const { editItem, inventory } = props;
+
+    console.log(inventory.find(item => item.id === Number(props.match.params.id)));
+    const initialCard = inventory.find(item => item.id === Number(props.match.params.id))
    
     const [item, setItem] = useState(initialCard)
     
@@ -26,7 +31,6 @@ const EditForm = props => {
 
     return (
       <div className="addItem-container">
-          {console.log(messageStatus)}
         <h2 className="headline">Edit Inventory Item</h2>
 
         <div className="form-container">
@@ -71,13 +75,13 @@ const EditForm = props => {
                 </Button>
               </div>
               <div className='message-wrapper'>
-                <div className={messageStatus}>
+                {/* <div className={messageStatus}>
                   <Message
                     positive
                     header='Success'
                     content='Item has been updated'
                   />
-                </div>
+                </div> */}
               </div>
             </Form>
           </div>
@@ -86,4 +90,11 @@ const EditForm = props => {
     );
 }
 
-export default EditForm;
+const mapStateToProps = state => ({
+  inventory: state.inventory 
+})
+
+export default connect(
+  mapStateToProps,
+  {editItem}
+)(EditForm)
