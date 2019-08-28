@@ -66,7 +66,6 @@ function App() {
   const deleteItem = (item) => {
     console.log('item that is being deleted', item)
     const object = {id: item.id};
-    console.log(object)
     
     axiosWithAuth()
       .delete(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory/${item.id}`)
