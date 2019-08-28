@@ -71,12 +71,6 @@ color: black;
 `
 
 export const Button = styled.button`
-background: none;
-border: 1px solid blue;
-border-radius: 8px;
-color: blue;
-font-size: 1rem;
-width: 100px;
 /* Width and position */
 width: 100%;
     padding: 8px 5px;
@@ -110,7 +104,7 @@ width: 50%;
 
     /* Styles */
     color: #ddd;
-    font-size: 12px;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 0 1px 0 #000;
