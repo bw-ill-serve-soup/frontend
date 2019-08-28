@@ -37,6 +37,7 @@ const AddItemForm = props => {
         addItem(item);
         
         setItem(initialState);
+        props.history.push('/');
     }
 
     return (

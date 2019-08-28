@@ -22,6 +22,7 @@ const EditForm = props => {
         console.log('this works');
         editItem(item);
         setItem({quantity: '', weightUnit: '', inventoryItem: ''});
+        props.history.push('/');
     }
 
     return (
