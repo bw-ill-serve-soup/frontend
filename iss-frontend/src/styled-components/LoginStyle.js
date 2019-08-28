@@ -1,26 +1,19 @@
-import React, {useState} from "react";
-//import axiosWithAuth from '../Auth/axiosWithAuth'
-import axios from 'axios'
-//import styled from 'styled-components'
-import {Label} from '../styled-components/LoginStyle'
-import {Form} from '../styled-components/LoginStyle'
-import {Button} from '../styled-components/LoginStyle'
-import {Input} from '../styled-components/LoginStyle'
-//import {getData} from '../Actions'
-/*const Form = styled.form`
+import styled from 'styled-components'
+
+export const Form = styled.form`
 border-radius: 20px;
 color: black;
-
+.
     font-family: 'Ubuntu', 'Lato', sans-serif;
     font-weight: 400;
-    // Size and position 
+    /* Size and position */
     width: 300px;
     position: relative;
     margin: 60px auto 30px;
     padding: 10px;
     overflow: hidden;
 
-    // Styles 
+    /* Styles */
     background: #111; 
     border-radius: 0.4em;
     border: 1px solid #191919;
@@ -29,17 +22,17 @@ color: black;
         0 16px 10px -8px rgba(0, 0, 0, 0.6);
 
 
-    // Size and position 
+    /* Size and position */
     
-     // Size and position 
+     /* Size and position */
      width: 50%;
     float: left;
     padding: 8px 5px;
     margin-bottom: 10px;
     font-size: 12px;
 
-    // Styles 
-    background: #1f2124; // Fallback 
+    /* Styles */
+    background: #1f2124; /* Fallback */
     background: -moz-linear-gradient(#1f2124, #27292c);
     background: -ms-linear-gradient(#1f2124, #27292c);
     background: -o-linear-gradient(#1f2124, #27292c);
@@ -51,18 +44,18 @@ color: black;
         0 1px 0 rgba(255,255,255,0.1);
     border-radius: 3px;
 
-    // Font styles 
+    /* Font styles */
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: #fff;
     background: #27292c;
     box-shadow: inset 0 0 2px #000;
     background: #494d54;
     border-color: #51cbee;
-    outline: none; // Remove Chrome outline 
+    outline: none; /* Remove Chrome outline */
     float: left;
     width: 50%;
 
-    //For remember me
+    /*For remember me*/
     width: auto;
     float: none;
     display: inline-block;
@@ -77,18 +70,18 @@ color: black;
 
 `
 
-const Button = styled.button`
+export const Button = styled.button`
 background: none;
 border: 1px solid blue;
 border-radius: 8px;
 color: blue;
 font-size: 1rem;
 width: 100px;
-// Width and position 
+/* Width and position */
 width: 100%;
     padding: 8px 5px;
- // Styles 
- border: 1px solid #0273dd; // Fallback 
+ /* Styles */
+ border: 1px solid #0273dd; /* Fallback */
     border: 1px solid rgba(0,0,0,0.4);
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.3),
@@ -97,7 +90,7 @@ width: 100%;
     background: #38a6f0;
     cursor:pointer;
   
-    // Font styles 
+    /* Font styles */
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: white;
     font-weight: 700;
@@ -110,12 +103,12 @@ width: 100%;
 
 `
 
-const Label = styled.label`
+export const Label = styled.label`
 width: 50%;
     float: left;
     padding-top: 9px;
 
-    // Styles 
+    /* Styles */
     color: #ddd;
     font-size: 12px;
     text-transform: uppercase;
@@ -127,16 +120,16 @@ width: 50%;
 `
 
 
-const Input = styled.input`
- // Size and position 
+export const Input = styled.input`
+ /* Size and position */
  width: 50%;
     float: left;
     padding: 8px 5px;
     margin-bottom: 10px;
     font-size: 12px;
 
-    // Styles 
-    background: #1f2124; // Fallback 
+    /* Styles */
+    background: #1f2124; /* Fallback */
     background: -moz-linear-gradient(#1f2124, #27292c);
     background: -ms-linear-gradient(#1f2124, #27292c);
     background: -o-linear-gradient(#1f2124, #27292c);
@@ -148,54 +141,7 @@ const Input = styled.input`
         0 1px 0 rgba(255,255,255,0.1);
     border-radius: 3px;
 
-    // Font styles 
+    /* Font styles */
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: #fff;
-`*/
-  const Login = event => {
-    const [creds, setCreds] = useState({ username: "", password: "" });
-    const handleSubmit = event => {
-      event.preventDefault();
-      //axiosWithAuth()
-      axios
-        .post('https://soupkitchen-buildweek.herokuapp.com/api/login', creds)
-        .then(res => {
-          localStorage.setItem('token', res.data.payload);
-          
-        })
-        .catch(err => console.log(err.response));
-    };
-
-
-    const changeHandler = event => {
-
-        setCreds({ ...creds, [event.target.name]: event.target.value });
-    };
-
-return (
-    <>
-<Form onSubmit={handleSubmit}>
-        <Label>Username</Label>
-        <Input
-        name='username'
-        type='text'
-        value={creds.username}
-        onChange={changeHandler}
-        placeholder='Username'
-        />
-        <Label>password</Label>
-        <Input
-        name='password'
-        type='password'
-        value={creds.password}
-        onChange={changeHandler}
-        placeholder='Password'
-        />
-        <Button>Let's ROCK!</Button>
-      </Form>
-
-    </>
-  );
-
-}
-export default Login
+`
