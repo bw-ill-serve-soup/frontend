@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './inventoryList.scss';
-// import Grid from '@material-ui/core/Grid';
+import {connect} from 'react-redux';
 
 const InventoryCard = props => {
 
@@ -18,7 +18,7 @@ const InventoryCard = props => {
     return (
         <div>
           <div className="page">
-            {props.card.map(item => {
+            {props.inventory.map(item => {
               return (
                 <div className="card" key={item.id}>
                   <h3 className="name">{item.item_name}</h3>
@@ -71,4 +71,12 @@ const InventoryCard = props => {
       );
 
     }
-export default InventoryCard;
+
+const mapStateToProps = state => ({
+  inventory: state.inventory
+})
+
+export default connect(
+  mapStateToProps,
+  {}
+)(InventoryCard)

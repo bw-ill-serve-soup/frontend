@@ -14,9 +14,21 @@ function reducer(state=initialState, action) {
 
     switch (action.type) {
         case FETCH_INVENTORY_START:
-            console.log(action) 
+            console.log('from reducer', action) 
             return {
                 ...state
+            }
+
+        case FETCH_INVENTORY_SUCCESS:
+            return {
+                ...state,
+                inventory: action.payload
+            }
+
+        case FETCH_INVENTORY_FAILURE:
+            return {
+                ...state,
+                error: action.payload
             }
         
         default:

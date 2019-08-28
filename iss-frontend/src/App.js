@@ -20,7 +20,6 @@ function App(props) {
 
   useEffect(() => {
     props.getInventory()
-      
   }, []);
   // State to display 'Success Message' on the AddItem form when post request is successful
 
@@ -109,18 +108,18 @@ function App(props) {
           ) : (
               <Redirect to='/login' /> 
           )
-      }} />
+      }} /> */}
       
 
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (
-              <InventoryList {...props} inventoryArray={inventoryArray} deleteItem={deleteItem} />
+              <InventoryList {...props} deleteItem={deleteItem} />
           ) : (
               <Redirect to='/login' /> 
           )
       }} />
-      <Route path='/login' component={DevLogin} />
+      {/* <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
       <Route path='/edit-item/:id' render={props => {
         const targetInventory = inventoryArray.find(inventory => inventory.id.toString() === props.match.params.id)
@@ -130,11 +129,15 @@ function App(props) {
   
 
 
-      <InventoryList />
+      {/* <InventoryList /> */}
       {/* <Login/> */}
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  inventory: state.inventory
+})
 
 export default connect(
   null, 
