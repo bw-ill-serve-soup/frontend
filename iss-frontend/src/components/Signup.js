@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-
 const Form = styled.form`
 border-radius: 20px;
 color: black;
@@ -72,6 +71,9 @@ color: black;
 
 
 `
+
+
+
 const Button = styled.button`
 background: none;
 border: 1px solid blue;
@@ -147,7 +149,8 @@ const Input = styled.input`
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: #fff;
 `
-function DevSignup() {
+
+function Signup() {
     const [credentials, setCredentials] = useState({username: '', password: ''})
 
     const login = e => {
@@ -192,4 +195,4 @@ function DevSignup() {
     )
 }
 
-export default DevSignup;
+export default Signup;
