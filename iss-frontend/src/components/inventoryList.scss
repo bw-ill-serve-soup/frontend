@@ -52,3 +52,78 @@ text-shadow: 0 0 3px #FF0000;
 div { 
     max-width: 100%;
 }
+
+button.edit-btn{
+    background:rgb(28, 139, 134);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:82px;
+    font-size:1.0em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  button.edit-btn:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+  button.edit-btn:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  button.edit-btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+//   button.edit-btn :hover:before,button:hover:after{
+//     width:100%;
+//     transition:800ms ease all;
+//   }
+  
+
+  button.delete-btn{
+    background:rgb(28, 139, 134);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:82px;
+    font-size:1.0em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  button.delete-btn:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+  button.delete-btn:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  button.delete-btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+//   button.delete-btn :hover:before,button:hover:after{
+//     width:100%;
+//     transition:800ms ease all;
+//   }
