@@ -47,7 +47,7 @@ class NavBar extends Component {
                     active={activeItem === "home"}
                     onClick={this.handleItemClick}
                   >
-                    Home
+                    My Inventory
                   </Menu.Item>
                   <Menu.Item
                     as={Link}
@@ -56,7 +56,7 @@ class NavBar extends Component {
                     active={activeItem === "add inventory"}
                     onClick={this.handleItemClick}
                   >
-                    Add Inventory
+                    Add Item
                   </Menu.Item>
                   <Menu.Item
                     as={Link}
