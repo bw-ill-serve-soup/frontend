@@ -3,7 +3,6 @@ import './AddItemForm/AddItemForm.scss';
 import { Form, Button, Message } from 'semantic-ui-react';
 
 
-
 const EditForm = props => {
     // what will be passed down as 'props' from App.js?
     // addItem function -> post request to backend
