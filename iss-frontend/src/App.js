@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Route, Redirect} from 'react-router-dom';
 
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar.js';
 import DevLogin from './components/DevLogin';
 import DevSignup from './components/DevSignup';
 // import InventoryList from './components/InventoryList';
