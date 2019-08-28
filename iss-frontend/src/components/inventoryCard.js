@@ -33,7 +33,7 @@ const InventoryCard = props => {
                   <h4 className="unit">
                     <div className="U-title">
                         <h3>
-                      <strong>Weight: </strong>
+                      <strong>Quantity: </strong>
                       </h3>
                     </div>
                     {item.quantity} {item.weightUnit}
