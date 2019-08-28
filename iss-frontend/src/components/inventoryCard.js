@@ -36,16 +36,17 @@ const InventoryCard = props => {
                       <strong>Weight: </strong>
                       </h3>
                     </p>
-                    {item.weightUnit}
+                    {item.quantity} {item.weightUnit}
                   </h4>
-                  <h4 className="category">
-                    <p className="C-title">
-                        <h3>
-                      <strong>Category: </strong>
-                      </h3>
-                    </p>
-                    {item.quantity}
-                  </h4>
+                  { (Number(item.quantity) === 0) ? (
+                    <h4 className="notification">
+                      <p className="C-title">
+                          <h3>
+                        <strong>Restock</strong>
+                        </h3>
+                      </p>
+                  </h4> ) : null
+                  }
                   <div>
                   </div>
                   {/* <div

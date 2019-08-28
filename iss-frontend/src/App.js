@@ -76,6 +76,10 @@ function App() {
           }
         }
         setInventoryArray(mutateArray);
+
+        // messageReset()
+        setAddMessage('message-display');
+        setTimeout(messageReset, 3000);
       })
       .catch(err => {
         console.log(err)
@@ -125,7 +129,7 @@ function App() {
       <Route path='/signup' component={DevSignup} />
       <Route path='/edit-item/:id' render={props => {
         const targetInventory = inventoryArray.find(inventory => inventory.id.toString() === props.match.params.id)
-        return <EditForm {...props} editItem={editItem} initialCard={targetInventory} />
+        return <EditForm {...props} editItem={editItem} initialCard={targetInventory} messageStatus={addMessage} />
       }} />
 
   
