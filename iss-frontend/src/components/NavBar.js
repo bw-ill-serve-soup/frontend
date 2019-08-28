@@ -26,7 +26,7 @@ class NavBar extends Component {
         const {activeItem} = this.state
         return (
             <Segment.Group>
-                <Segment color='white' inverted>
+                <Segment  inverted>
                     <Menu pointing secondary inverted>
                         <Menu.Item
                             as={Link}
