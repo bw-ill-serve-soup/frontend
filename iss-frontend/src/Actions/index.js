@@ -1,4 +1,4 @@
-export {
+/*export {
   getData,
   //postData,
   GET_USER_DATA_START,
@@ -7,4 +7,4 @@ export {
  // POST_USER_DATA_START,
  // POST_USER_DATA_SUCCESS,
  // POST_USER_DATA_FAILURE,
-} from './userAction';
+} from './userAction';*/

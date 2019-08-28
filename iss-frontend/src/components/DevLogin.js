@@ -1,8 +1,6 @@
-import React, {useState} from "react";
-//import axiosWithAuth from '../Auth/axiosWithAuth'
-import axios from 'axios'
+import React, {useState} from 'react';
+import axios from 'axios';
 import styled from 'styled-components'
-//import {getData} from '../Actions'
 const Form = styled.form`
 border-radius: 20px;
 color: black;
@@ -148,50 +146,50 @@ const Input = styled.input`
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: #fff;
 `
-  const Login = event => {
-    const [creds, setCreds] = useState({ username: "", password: "" });
-    const handleSubmit = event => {
-      event.preventDefault();
-      //axiosWithAuth()
-      axios
-        .post('https://soupkitchen-buildweek.herokuapp.com/api/login', creds)
-        .then(res => {
-          localStorage.setItem('token', res.data.payload);
-          
-        })
-        .catch(err => console.log(err.response));
-    };
 
+function DevLogin() {
+    const [credentials, setCredentials] = useState({username: '', password: ''})
 
-    const changeHandler = event => {
+    const login = e => {
+        e.preventDefault();
+        axios
+            .post('https://soupkitchen-buildweek.herokuapp.com/api/login', credentials)
+            .then(res => {
+                console.log(res)
+                localStorage.setItem('token', res.data.token)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
-        setCreds({ ...creds, [event.target.name]: event.target.value });
-    };
+    const handleChange = e => {
+        console.log(credentials) 
+        setCredentials({...credentials, [e.target.name]: e.target.value})
+    }
 
-return (
-    <>
-<Form onSubmit={handleSubmit}>
-        <Label>Username</Label>
-        <Input
-        name='username'
-        type='text'
-        value={creds.username}
-        onChange={changeHandler}
-        placeholder='Username'
-        />
-        <Label>password</Label>
-        <Input
-        name='password'
-        type='password'
-        value={creds.password}
-        onChange={changeHandler}
-        placeholder='Password'
-        />
-        <Button>Let's ROCK!</Button>
-      </Form>
-
-    </>
-  );
-
+    return (
+        <div className='login-container'>
+            <Form onSubmit={login}>
+            <Label>Username</Label>
+                <Input
+                    type='text'
+                    name='username'
+                    value={credentials.username}
+                    onChange={handleChange}
+                />
+                <Label>Password</Label>
+                <Input 
+                    type='password'
+                    name='password'
+                    value={credentials.password}
+                    onChange={handleChange}
+                />
+                <Button>Submit!</Button>
+            </Form>
+            
+        </div>
+    )
 }
-export default Login
+
+export default DevLogin;
