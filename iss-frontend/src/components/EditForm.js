@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './AddItemForm.scss';
+import './AddItemForm/AddItemForm.scss';
 import { Form, Button, Popup } from 'semantic-ui-react';
 
 

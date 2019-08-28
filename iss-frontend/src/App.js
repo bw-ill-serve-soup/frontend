@@ -8,7 +8,7 @@ import DevSignup from './components/DevSignup';
 
 import './App.css';
 import { axiosWithAuth } from './Auth/axiosWithAuth.js';
-import AddItemForm from './components/AddItemForm.js';
+import AddItemForm from './components/AddItemForm/AddItemForm.js';
 import InventoryList from './components/inventoryList';
 import EditForm from './components/EditForm';
 
@@ -27,6 +27,15 @@ function App() {
       }) 
       .catch(err => console.log(err)) 
   }, []);
+  // State to display 'Success Message' on the AddItem form when post request is successful
+
+  const [addMessage, setAddMessage] = useState('message-hide');
+
+  // Function to use in successful post request to hide 'Success' message after 3 seconds
+
+  const messageReset = () => {
+    setAddMessage('message-hide');
+  }
 
   const addItem = (item) => {
     console.log('you have added an inventory item', item);
@@ -36,12 +45,22 @@ function App() {
         setInventoryArray([
           ...res.data.userInventory
         ])
+        console.log(res);
+        // need to update state
+        
+        setAddMessage('message-display');
+        setTimeout(messageReset, 3000);
+        
       })
       .catch(error => {
         console.log('There was an error', error)
+        
+        
+        
+
       })
   };
-
+  
   const editItem = (item) => {
     console.log('item that is being edited', item);
     axiosWithAuth()
@@ -80,17 +99,19 @@ function App() {
       })
   }
 
+        
   return (
     // <Route>
     <div className="App">
       <NavBar />
       <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
-              <AddItemForm {...props} addItem={addItem} />
+              <AddItemForm {...props} addItem={addItem} messageStatus={addMessage}/>
           ) : (
               <Redirect to='/login' /> 
           )
       }} />
+      
 
       
       <Route exact path='/' render={props => {
@@ -107,12 +128,7 @@ function App() {
         return <EditForm {...props} editItem={editItem} initialCard={targetInventory} />
       }} />
 
-    
-      {/* <Route
-        exact
-        path="/add_item"
-        render={props => <AddItemForm {...props} addItem={addItem} />}
-      /> */}
+  
 
       {/* <InventoryList /> */}
       {/* <Login/> */}

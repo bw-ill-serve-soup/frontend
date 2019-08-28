@@ -11,6 +11,7 @@ const BottomNav = styled.div`
     min-height: 100%;
     background-image: url(https://images.pexels.com/photos/6971/wood-light-summer-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-size: cover;
+    
 `;
 
 
@@ -25,8 +26,8 @@ class NavBar extends Component {
         const {activeItem} = this.state
         return (
             <Segment.Group>
-                <Segment color='blue' inverted>
-                    <Menu pointing secondary color='blue' inverted>
+                <Segment color='white' inverted>
+                    <Menu pointing secondary inverted>
                         <Menu.Item
                             as={Link}
                             name='home'

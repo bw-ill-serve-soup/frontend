@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './AddItemForm.scss';
-import { Form, Button, Popup } from 'semantic-ui-react';
+import { Form, Button, Message } from 'semantic-ui-react';
+
+
 
 
 
@@ -8,14 +10,18 @@ const AddItemForm = props => {
     // what will be passed down as 'props' from App.js?
     // addItem function -> post request to backend
 
-    const { addItem } = props;
+    const { addItem, messageStatus } = props;
 
 
     // State
     
     const initialState = {quantity: '', weightUnit: '', inventoryItem: ''};
+
     
     const [item, setItem] = useState(initialState);
+
+
+    
 
     // Temporary, this will probably include an 'addItem' function from App.js
     
@@ -29,6 +35,7 @@ const AddItemForm = props => {
         event.preventDefault();
         console.log('this works');
         addItem(item);
+        
         setItem(initialState);
     }
 
@@ -38,8 +45,7 @@ const AddItemForm = props => {
 
         <div className="form-container">
           <div className="form-wrapper">
-            <Form onSubmit={handleSubmit}>
-            
+            <Form onSubmit={handleSubmit} inverted>
               <Form.Input
                 required
                 label="Item name"
@@ -73,11 +79,18 @@ const AddItemForm = props => {
               </Form.Group>
 
               <div className="button-wrapper">
-                
-                
                 <Button className="sub-button" type="submit">
                   Add new item
                 </Button>
+              </div>
+              <div className="message-wrapper">
+                <div className={messageStatus}>
+                  <Message
+                    positive
+                    header="Success"
+                    content="A new item was added to your inventory"
+                  />
+                </div>
               </div>
             </Form>
           </div>
