@@ -34,7 +34,6 @@ const InventoryList = props => {
     </div>
   )
 }
-
 export default InventoryList;
 
   
