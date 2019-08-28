@@ -31,29 +31,29 @@ function App(props) {
     setAddMessage('message-hide');
   }
 
-  const addItem = (item) => {
-    console.log('you have added an inventory item', item);
-    axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
-      .then(res => {
-        console.log(res.data.userInventory);
-        setInventoryArray([
-          ...res.data.userInventory
-        ])
-        console.log(res);
-        // need to update state
+  // const addItem = (item) => {
+  //   console.log('you have added an inventory item', item);
+  //   axiosWithAuth().post('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory', item)
+  //     .then(res => {
+  //       console.log(res.data.userInventory);
+  //       setInventoryArray([
+  //         ...res.data.userInventory
+  //       ])
+  //       console.log(res);
+  //       // need to update state
         
-        setAddMessage('message-display');
-        setTimeout(messageReset, 3000);
+  //       setAddMessage('message-display');
+  //       setTimeout(messageReset, 3000);
         
-      })
-      .catch(error => {
-        console.log('There was an error', error)
+  //     })
+  //     .catch(error => {
+  //       console.log('There was an error', error)
         
         
         
 
-      })
-  };
+  //     })
+  // };
   
   const editItem = (item) => {
     console.log('item that is being edited', item);
@@ -101,14 +101,14 @@ function App(props) {
   return (
     // <Route>
     <div className="App">
-      {/* <NavBar />
+      <NavBar />
       <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
-              <AddItemForm {...props} addItem={addItem} messageStatus={addMessage}/>
+              <AddItemForm {...props} messageStatus={addMessage}/>
           ) : (
               <Redirect to='/login' /> 
           )
-      }} /> */}
+      }} />
       
 
       

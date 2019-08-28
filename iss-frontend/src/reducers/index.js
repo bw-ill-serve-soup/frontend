@@ -1,7 +1,10 @@
 import {
     FETCH_INVENTORY_START,
     FETCH_INVENTORY_SUCCESS,
-    FETCH_INVENTORY_FAILURE
+    FETCH_INVENTORY_FAILURE,
+    ADD_INVENTORY_START,
+    ADD_INVENTORY_SUCCESS,
+    ADD_INVENTORY_FAILURE
 } from '../Actions'
 
 const initialState = {
@@ -30,7 +33,21 @@ function reducer(state=initialState, action) {
                 ...state,
                 error: action.payload
             }
-        
+
+        case ADD_INVENTORY_START:
+            return {
+                ...state
+            }
+        case ADD_INVENTORY_SUCCESS:
+            return {
+                ...state,
+                inventory: action.payload
+            }
+        case ADD_INVENTORY_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return {
                 ...state

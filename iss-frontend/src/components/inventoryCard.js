@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 
 const InventoryCard = props => {
 
-    const [inventory, setInventory] = useState([])
-
     const editClickHandler = item => {
       console.log('editing item', item) 
       props.history.push(`/edit-item/${item.id}`)
@@ -49,18 +47,6 @@ const InventoryCard = props => {
                   }
                   <div>
                   </div>
-                  {/* <div
-                    onClick={event => props.plus(item.id, event)}
-                    className="countButtons"
-                  >
-                    +
-                  </div>
-                  <div
-                    onClick={event => props.minus(item.id, event)}
-                    className="countButtons"
-                  >
-                    -
-                  </div> */}
                   <button className='delete-btn' onClick={() => deleteClickHandler(item)}>Delete Item</button>
                   <button className='edit-btn' onClick={() => editClickHandler(item)}>Edit Item</button>
                 </div>
