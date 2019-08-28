@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react';
-
-
-
+import './inventoryList.scss';
+// import Grid from '@material-ui/core/Grid';
 
 const InventoryCard = props => {
 
