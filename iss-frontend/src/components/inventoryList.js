@@ -19,18 +19,18 @@ const mockArray = [
 
 
 const InventoryList = props => {
-  const [inventory, setinventory] = useState([]);
-  // console.log(props);
-  const {history, inventoryArray, deleteItem} = props;
+  // const [inventory, setinventory] = useState([]);
+  // // console.log(props);
+  // const {history, inventoryArray, deleteItem} = props;
 
-  useEffect(() => {
-    setinventory([...inventoryArray])
-  }, [inventoryArray]);
+  // useEffect(() => {
+  //   setinventory([...inventoryArray])
+  // }, [inventoryArray]);
 
 
   return (
     <div>
-      {inventory && <InventoryCard card={inventory} history={history} deleteItem={deleteItem} />}
+      {/* {inventory && <InventoryCard card={inventory} history={history} deleteItem={deleteItem} />} */}
     </div>
   )
 }
