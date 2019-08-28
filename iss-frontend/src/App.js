@@ -31,33 +31,6 @@ function App(props) {
     setAddMessage('message-hide');
   }
 
-  console.log(props.inventory);
-  
-  // const editItem = (item) => {
-  //   console.log('item that is being edited', item);
-  //   axiosWithAuth()
-  //     .put(`https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory`, item)
-  //     .then(res => {
-  //       console.log(res)
-  //       const mutateArray = [...inventoryArray]
-  //       for (let i=0; i < inventoryArray.length; i++) {
-  //         if (item.id === mutateArray[i].id) {
-  //           mutateArray[i].quantity = item.quantity;
-  //           mutateArray[i].weightUnit = item.weightUnit;
-  //           mutateArray[i].inventoryItem = item.inventoryItem;
-  //         }
-  //       }
-  //       setInventoryArray(mutateArray);
-
-  //       // messageReset()
-  //       setAddMessage('message-display');
-  //       setTimeout(messageReset, 3000);
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
-
         
   return (
     // <Route>
@@ -82,10 +55,6 @@ function App(props) {
       }} />
       <Route path='/login' component={DevLogin} />
       <Route path='/signup' component={DevSignup} />
-      {/* <Route path='/edit-item/:id' render={props => {
-        const targetInventory = props.inventory.find(item => item.id.toString() === props.match.params.id)
-        return <EditForm {...props} initialCard={targetInventory} messageStatus={addMessage} />
-      }} /> */}
       <Route path='/edit-item/:id' render={props => {
         return <EditForm {...props} />
       }} />
