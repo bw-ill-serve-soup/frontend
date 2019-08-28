@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import NavBar from './components/NavBar';
 import DevLogin from './components/DevLogin';
@@ -13,19 +14,15 @@ import InventoryList from './components/inventoryList';
 import EditForm from './components/EditForm';
 
 import Login from './components/Login';
+import {getInventory} from '../Actions';
 
-function App() {
+function App(props) {
 
   const [inventoryArray, setInventoryArray] = useState([]);
 
   useEffect(() => {
-    axiosWithAuth()
-      .get('https://soupkitchen-buildweek.herokuapp.com/kitchen/inventory')
-      .then(res => {
-        console.log(res)
-        setInventoryArray(res.data)
-      }) 
-      .catch(err => console.log(err)) 
+    props.getInventory()
+      
   }, []);
   // State to display 'Success Message' on the AddItem form when post request is successful
 
@@ -107,7 +104,7 @@ function App() {
   return (
     // <Route>
     <div className="App">
-      <NavBar />
+      {/* <NavBar />
       <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
               <AddItemForm {...props} addItem={addItem} messageStatus={addMessage}/>
@@ -130,17 +127,20 @@ function App() {
       <Route path='/edit-item/:id' render={props => {
         const targetInventory = inventoryArray.find(inventory => inventory.id.toString() === props.match.params.id)
         return <EditForm {...props} editItem={editItem} initialCard={targetInventory} messageStatus={addMessage} />
-      }} />
+      }} /> */}
 
   
 
 
-      {/* <InventoryList /> */}
+      <InventoryList />
       {/* <Login/> */}
     </div>
   );
 }
 
-export default App;
+export default connect(
+  null, 
+  {getInventory}
+)(App);
 
 

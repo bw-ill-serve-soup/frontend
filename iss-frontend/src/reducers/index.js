@@ -1,3 +1,9 @@
+import {
+    FETCH_INVENTORY_START,
+    FETCH_INVENTORY_SUCCESS,
+    FETCH_INVENTORY_FAILURE
+} from '../Actions'
+
 const initialState = {
     inventory: [],
     error: ''
@@ -19,3 +25,5 @@ function reducer(state=initialState, action) {
             }
     }
 }
+
+export default reducer
