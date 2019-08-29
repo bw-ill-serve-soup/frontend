@@ -5,6 +5,8 @@ import {Label} from '../styled-components/LoginStyle'
 import {Form} from '../styled-components/LoginStyle'
 import {Button} from '../styled-components/LoginStyle'
 import {Input} from '../styled-components/LoginStyle'
+import {BackGround} from '../styled-components/LoginStyle'
+import './DevLogin.scss';
 
 export const ErrorParagraph = styled.p`
     padding: 16px;
@@ -15,6 +17,8 @@ export const ErrorParagraph = styled.p`
     max-width: 700px;
     margin: 16px auto;
 `;
+
+
 
 function DevLogin(props) {
     const [credentials, setCredentials] = useState({username: '', password: ''})
@@ -43,7 +47,7 @@ function DevLogin(props) {
     }
 
     return (
-        <div className='login-container'>
+        <div className='background'>
             <Form onSubmit={login}>
             <Label>Username</Label>
                 <Input
