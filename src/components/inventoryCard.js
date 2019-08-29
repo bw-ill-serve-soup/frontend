@@ -1,17 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import './inventoryList.scss';
-import { Button, Transition, Divider } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 // import Grid from '@material-ui/core/Grid';
 
 const InventoryCard = props => {
-
-    const [inventory, setInventory] = useState([])
-
-    const [visible, setVisible] = useState(true)
-
-    const toggleVisibility = () => {
-      setVisible(!visible)
-    }
 
     const editClickHandler = item => {
       console.log('editing item', item) 
@@ -19,7 +11,6 @@ const InventoryCard = props => {
     }
 
     const deleteClickHandler = item => {
-      toggleVisibility();
       props.deleteItem(item) 
     }
 
@@ -66,13 +57,10 @@ const InventoryCard = props => {
                   <div>
                   </div>
                   <div className='btn-container'>
-                      <Button className='delete-btn' basic color='red' onClick={() => deleteClickHandler(item)}>
-                        
-                        
-                          Delete Item
-                        
+                      <Button className='delete-btn' inverted color='red' onClick={() => deleteClickHandler(item)}>
+                        Delete Item
                       </Button>
-                      <Button className='edit-btn' basic color='green' onClick={() => editClickHandler(item)}>
+                      <Button className='edit-btn' inverted color='green' onClick={() => editClickHandler(item)}>
                         Edit Item
                       </Button>
                   </div>
