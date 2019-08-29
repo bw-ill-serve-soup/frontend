@@ -22,7 +22,7 @@ const EditForm = props => {
         console.log('this works');
         editItem(item);
         setItem({quantity: '', weightUnit: '', inventoryItem: ''});
-        props.history.push('/');
+        // setTimeout(props.history.push('/'), 3000);
     }
 
     return (

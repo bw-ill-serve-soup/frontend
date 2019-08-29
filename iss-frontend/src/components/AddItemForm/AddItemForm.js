@@ -37,7 +37,7 @@ const AddItemForm = props => {
         addItem(item);
         
         setItem(initialState);
-        props.history.push('/');
+        // setTimeout(props.history.push('/'), 3000);
     }
 
     return (
