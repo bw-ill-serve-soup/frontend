@@ -45,22 +45,30 @@ const InventoryCard = props => {
                         <strong>Restock</strong>
                         </h3>
                       </div>
+                      
                   </h4> ) : null
                   }
+
+                  { (Number(item.quantity) > 1) ? (
+                   <h4 className="stocked">
+                      <div className="S-title">
+                          <h3>
+                        <strong>Stocked</strong>
+                        </h3>
+                      </div>
+                      
+                  </h4> ) : null
+                  }
+
+
+
+
+
+
+
                   <div>
                   </div>
-                  {/* <div
-                    onClick={event => props.plus(item.id, event)}
-                    className="countButtons"
-                  >
-                    +
-                  </div>
-                  <div
-                    onClick={event => props.minus(item.id, event)}
-                    className="countButtons"
-                  >
-                    -
-                  </div> */}
+                  
                   <button className='delete-btn' onClick={() => deleteClickHandler(item)}>Delete Item</button>
                   <button className='edit-btn' onClick={() => editClickHandler(item)}>Edit Item</button>
                 </div>
