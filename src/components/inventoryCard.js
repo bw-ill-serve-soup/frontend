@@ -1,10 +1,17 @@
 import React, { useState, useEffect} from 'react';
 import './inventoryList.scss';
+import { Button, Transition, Divider } from 'semantic-ui-react';
 // import Grid from '@material-ui/core/Grid';
 
 const InventoryCard = props => {
 
     const [inventory, setInventory] = useState([])
+
+    const [visible, setVisible] = useState(true)
+
+    const toggleVisibility = () => {
+      setVisible(!visible)
+    }
 
     const editClickHandler = item => {
       console.log('editing item', item) 
@@ -12,6 +19,7 @@ const InventoryCard = props => {
     }
 
     const deleteClickHandler = item => {
+      toggleVisibility();
       props.deleteItem(item) 
     }
 
@@ -38,31 +46,36 @@ const InventoryCard = props => {
                     </div>
                     {item.quantity} {item.weightUnit}
                   </h4>
-                  { (Number(item.quantity) === 0) ? (
-                    <h4 className="notification">
+                  {(Number(item.quantity) === 0) ? (
+                    <h3 className="notification">
                       <div className="C-title">
-                          <h3>
-                        <strong>Restock</strong>
+                        <h3 className='restock'>
+                          <strong>Restock</strong>
                         </h3>
                       </div>
-                  </h4> ) : null
+                  </h3> ) : (
+                    <h3 className="notification">
+                      <div className="C-title">
+                        <h3 className='stock'>
+                          <strong>Stocked</strong>
+                        </h3>
+                      </div>
+                    </h3>
+                  )
                   }
                   <div>
                   </div>
-                  {/* <div
-                    onClick={event => props.plus(item.id, event)}
-                    className="countButtons"
-                  >
-                    +
+                  <div className='btn-container'>
+                      <Button className='delete-btn' basic color='red' onClick={() => deleteClickHandler(item)}>
+                        
+                        
+                          Delete Item
+                        
+                      </Button>
+                      <Button className='edit-btn' basic color='green' onClick={() => editClickHandler(item)}>
+                        Edit Item
+                      </Button>
                   </div>
-                  <div
-                    onClick={event => props.minus(item.id, event)}
-                    className="countButtons"
-                  >
-                    -
-                  </div> */}
-                  <button className='delete-btn' onClick={() => deleteClickHandler(item)}>Delete Item</button>
-                  <button className='edit-btn' onClick={() => editClickHandler(item)}>Edit Item</button>
                 </div>
               );
             })}
