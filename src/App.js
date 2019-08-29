@@ -10,7 +10,7 @@ import './App.css';
 import { axiosWithAuth } from './Auth/axiosWithAuth.js';
 import AddItemForm from './components/AddItemForm/AddItemForm.js';
 import InventoryList from './components/inventoryList';
-import EditForm from './components/EditForm';
+import EditForm from './components/AddItemForm/EditForm';
 
 import Login from './components/Login';
 
