@@ -60,8 +60,8 @@ const AddItemForm = props => {
                 <Form.Input
                   required
                   fluid
-                  label="Item weight"
-                  placeholder="ex. 3 lbs."
+                  label="weight unit"
+                  placeholder="ex. lbs."
                   value={item.weightUnit}
                   name="weightUnit"
                   type="text"
