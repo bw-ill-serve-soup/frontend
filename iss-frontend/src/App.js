@@ -10,7 +10,8 @@ import './App.css';
 import { axiosWithAuth } from './Auth/axiosWithAuth.js';
 import AddItemForm from './components/AddItemForm/AddItemForm.js';
 import InventoryList from './components/inventoryList';
-import EditForm from './components/EditForm';
+import EditForm from './components/EditForm/EditForm';
+import CardInventory from './components/CardInventory/CardInventory';
 
 import Login from './components/Login';
 
@@ -116,7 +117,11 @@ function App() {
           )
       }} />
       
-
+      <Route exact path='/new_card' render={props => {
+        return (
+          <CardInventory {...props} inventoryArray={inventoryArray} deleteItem={deleteItem} />
+        )
+      }} />
       
       <Route exact path='/' render={props => {
         return localStorage.getItem('token') ? (

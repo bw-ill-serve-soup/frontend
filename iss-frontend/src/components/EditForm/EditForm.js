@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './AddItemForm/AddItemForm.scss';
+import './EditForm.scss';
 import { Form, Button, Message } from 'semantic-ui-react';
 
 
@@ -32,7 +32,7 @@ const EditForm = props => {
 
         <div className="form-container">
           <div className="form-wrapper">
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className='edit-form'>
             
               <Form.Input
                 required
@@ -68,7 +68,7 @@ const EditForm = props => {
 
               <div className="button-wrapper">
                 <Button className="sub-button" type="submit">
-                  Add new item
+                  Update item
                 </Button>
               </div>
               <div className='message-wrapper'>

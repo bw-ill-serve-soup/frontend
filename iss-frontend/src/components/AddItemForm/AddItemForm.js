@@ -55,6 +55,7 @@ const AddItemForm = props => {
                 name="inventoryItem"
                 type="text"
                 onChange={handleChange}
+                
               />
               <Form.Group widths="equal">
                 <Form.Input
