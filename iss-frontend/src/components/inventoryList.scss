@@ -9,9 +9,9 @@ div.card {
 
 .page {
 
-    background: #73C8A9;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #373B44, #73C8A9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #373B44, #73C8A9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #73C8A9;  
+    background: -webkit-linear-gradient(to right, #373B44, #73C8A9);  
+    background: linear-gradient(to right, #373B44, #73C8A9); 
 
     
 }
@@ -41,6 +41,12 @@ text-shadow: 0 0 3px #FF0000;
 
 div { 
     max-width: 100%;
+}
+
+
+h4.notification {
+  margin-right: -19%;
+
 }
 
 button.edit-btn{

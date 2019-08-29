@@ -15,7 +15,7 @@ const mockArray = [
   {inventoryItem: 'Flour', weightUnit: '100 pounds', quantity: 5},
   {inventoryItem: 'Diced Tomatoes', weightUnit: '10 pounds', quantity: 12}
 ]
-
+ 
 
 
 const InventoryList = props => {
