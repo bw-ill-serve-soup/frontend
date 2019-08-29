@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0",
+    "version": 2,
     "name": "iss-frontend",
     "builds": [{ "src": "iss-frontend/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
     "routes": [
