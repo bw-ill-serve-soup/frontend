@@ -85,7 +85,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 inventory: mutateArray
             }
-        case EDIT_INVENTORY_SUCCESS:
+        case EDIT_INVENTORY_FAILURE:
             return {
                 ...state
             }
