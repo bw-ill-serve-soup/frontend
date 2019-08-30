@@ -16,20 +16,9 @@ import {getInventory} from './Actions';
 
 function App(props) {
 
-  const [inventoryArray, setInventoryArray] = useState([]);
-
   useEffect(() => {
     props.getInventory()
   }, []);
-  // State to display 'Success Message' on the AddItem form when post request is successful
-
-  const [addMessage, setAddMessage] = useState('message-hide');
-
-  // Function to use in successful post request to hide 'Success' message after 3 seconds
-
-  const messageReset = () => {
-    setAddMessage('message-hide');
-  }
 
         
   return (
@@ -38,7 +27,7 @@ function App(props) {
       <NavBar />
       <Route path='/add_item' render={props => {
         return localStorage.getItem('token') ? (
-              <AddItemForm {...props} messageStatus={addMessage}/>
+              <AddItemForm {...props} />
           ) : (
               <Redirect to='/login' /> 
           )

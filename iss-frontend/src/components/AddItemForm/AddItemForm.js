@@ -13,7 +13,7 @@ const AddItemForm = props => {
     // what will be passed down as 'props' from App.js?
     // addItem function -> post request to backend
 
-    const { addItem, messageStatus } = props;
+    const { addItem } = props;
 
 
     // State
@@ -86,15 +86,6 @@ const AddItemForm = props => {
                 <Button className="sub-button" type="submit">
                   Add new item
                 </Button>
-              </div>
-              <div className="message-wrapper">
-                <div className={messageStatus}>
-                  <Message
-                    positive
-                    header="Success"
-                    content="A new item was added to your inventory"
-                  />
-                </div>
               </div>
             </Form>
           </div>
