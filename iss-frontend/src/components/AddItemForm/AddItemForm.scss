@@ -19,6 +19,14 @@
       text-align: start;
       padding: 0 0 20px;
 
+      .edit-form {
+        color: white !important;
+        
+        label {
+            color: white;
+        }
+      }
+
       form {
         color: white;
 

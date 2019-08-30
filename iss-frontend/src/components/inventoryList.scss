@@ -3,18 +3,14 @@ div.card {
     flex-direction: row;
     justify-content: space-between;
     border-bottom: solid 1px black;
-    
-    
-    
+    max-width: 100%;
+       
 }
 
 .page {
-
-    background: #73C8A9;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #373B44, #73C8A9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #373B44, #73C8A9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    
+    // background: #73C8A9;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #373B44, #73C8A9);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #373B44, #73C8A9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 
 h4.unit {
@@ -23,22 +19,19 @@ h4.unit {
   
 }
 
+h3.notification {
+  margin-right: -18.7%;
+  margin-bottom: 20px;
+}
+
 strong  {
-    color: #e1eec3;  
+    color: #222121;  
     
 }
 
 p {
-    color: #212121;
+    color: #5a58582c;
     font-size: 1.3rem;
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 25%;
-    display: inline-block;
 }
 
 h1.header {
@@ -46,4 +39,127 @@ display: flex;
 justify-content: center;
 margin-right: -3.6%;
 text-shadow: 0 0 3px #FF0000;
+}
+
+div { 
+    max-width: 100%;
+}
+
+button.edit-btn{
+    background:rgb(28, 139, 134);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:70px;
+    font-size:1.0em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+ 
+  }
+  button.edit-btn:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+  button.edit-btn:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  button.edit-btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+//   button.edit-btn :hover:before,button:hover:after{
+//     width:100%;
+//     transition:800ms ease all;
+//   }
+  
+
+  button.delete-btn{
+    background:rgb(28, 139, 134);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:70px;
+    font-size:1.0em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  
+  }
+  button.delete-btn:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+  button.delete-btn:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  
+  button.delete-btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+
+  // button.delete-btn :hover:before,button:hover:after{
+  //   width:100%;
+  //   transition:800ms ease all;
+  // }
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.notification {
+  .C-title {
+    .restock {
+      background-color: #ffb7b7;
+      color: red;
+      border: solid 1px #f39595;
+      padding: 16px;
+      border-radius: 4px;
+      width: 100px;
+      margin: 16px auto;
+    }
+    .stock {
+      background-color: #bdebc8;
+      color: rgb(13, 134, 34);
+      border: solid 1px #90a896;
+      padding: 16px;
+      border-radius: 4px;
+      width: 100px;
+      margin: 16px auto;
+    }
+  }
+}
+
+.card {
+  .quantity {
+    margin-top: 40px;
+  }
+
+  .unit {
+    margin-top: 40px;
+  }
 }

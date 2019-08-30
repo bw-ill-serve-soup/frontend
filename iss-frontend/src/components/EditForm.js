@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AddItemForm/AddItemForm.scss';
-import { Form, Button, Message } from 'semantic-ui-react';
+import { Form, Button, Message, Dropdown } from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {editItem} from '../Actions';
 
@@ -35,7 +35,7 @@ const EditForm = props => {
 
         <div className="form-container">
           <div className="form-wrapper">
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className='edit-form'>
             
               <Form.Input
                 required
@@ -47,11 +47,12 @@ const EditForm = props => {
                 onChange={handleChange}
               />
               <Form.Group widths="equal">
+
                 <Form.Input
                   required
                   fluid
-                  label="Item weight"
-                  placeholder="ex. 3 lbs."
+                  label="Unit"
+                  placeholder="ex. lbs."
                   value={item.weightUnit}
                   name="weightUnit"
                   type="text"
