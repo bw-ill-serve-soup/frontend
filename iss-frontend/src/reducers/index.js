@@ -31,7 +31,8 @@ function reducer(state=initialState, action) {
         case FETCH_INVENTORY_SUCCESS:
             return {
                 ...state,
-                inventory: action.payload
+                inventory: action.payload,
+                error: ''
             }
 
         case FETCH_INVENTORY_FAILURE:
@@ -47,7 +48,8 @@ function reducer(state=initialState, action) {
         case ADD_INVENTORY_SUCCESS:
             return {
                 ...state,
-                inventory: action.payload
+                inventory: action.payload,
+                error: ''
             }
         case ADD_INVENTORY_FAILURE:
             return {
@@ -62,11 +64,13 @@ function reducer(state=initialState, action) {
         case DELETE_INVENTORY_SUCCESS:
             return {
                 ...state,
-                inventory: state.inventory.filter(item => item.id !== action.payload.id)
+                inventory: state.inventory.filter(item => item.id !== action.payload.id),
+                error: ''
             }
         case DELETE_INVENTORY_FAILURE:
             return {
-                ...state
+                ...state,
+                error: action.payload
             }
         case EDIT_INVENTORY_START:
             return {
@@ -83,11 +87,13 @@ function reducer(state=initialState, action) {
             }
             return {
                 ...state,
-                inventory: mutateArray
+                inventory: mutateArray,
+                error: ''
             }
         case EDIT_INVENTORY_FAILURE:
             return {
-                ...state
+                ...state,
+                error: action.payload
             }
         default:
             return {

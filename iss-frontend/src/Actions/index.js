@@ -14,8 +14,8 @@ export const getInventory = () => dispatch => {
     dispatch({type: FETCH_INVENTORY_SUCCESS, payload: res.data})
   }) 
   .catch(err => {
-    console.log(err)
-    dispatch({type: FETCH_INVENTORY_FAILURE, payload: `${err.response}`})
+    console.log(err.response.statusText)
+    dispatch({type: FETCH_INVENTORY_FAILURE, payload: `${err.response.status} ${err.response.statusText}`})
   }) 
 }
 
@@ -31,9 +31,9 @@ export const addItem = (item) => dispatch => {
         console.log('from action creator', res);
         dispatch({type: ADD_INVENTORY_SUCCESS, payload: res.data.userInventory })
       })
-      .catch(error => {
-        console.log(error)
-        dispatch({type: ADD_INVENTORY_FAILURE, payload: `${error.response}`})
+      .catch(err => {
+        console.log(err)
+        dispatch({type: ADD_INVENTORY_FAILURE, payload: `${err.response.status} ${err.response.statusText}`})
       })
 } 
 
@@ -51,7 +51,7 @@ export const deleteItem = (item) => dispatch => {
     })
     .catch(err => {
       console.log(err.response) 
-      dispatch({type: DELETE_INVENTORY_FAILURE, payload: `${err.response}`})
+      dispatch({type: DELETE_INVENTORY_FAILURE, payload: `${err.response.status} ${err.response.statusText}`})
     })
 }
 
@@ -69,6 +69,6 @@ export const editItem = (item) => dispatch => {
     })
     .catch(err => {
       console.log(err) 
-      dispatch({type: EDIT_INVENTORY_FAILURE, payload: `${err.response}`})
+      dispatch({type: EDIT_INVENTORY_FAILURE, payload: `${err.response.status} ${err.response.statusText}`})
     })
 }
