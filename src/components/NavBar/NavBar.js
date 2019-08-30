@@ -76,6 +76,14 @@ class NavBar extends Component {
                   >
                     Signup
                   </Menu.Item>
+                  <Menu.Item
+                    name="marketing"
+                    href="https://illservesoup23.netlify.com/"
+                    active={activeItem === "marketing"}
+                    onClick={this.handleItemClick}
+                  >
+                    Marketing
+                  </Menu.Item>
                 </Menu.Menu>
               </Menu>
             </Segment>
